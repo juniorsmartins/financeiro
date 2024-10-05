@@ -15,4 +15,5 @@ print(f"Multiplicação: {mult}")
 print(f"Resto da divisão: {mod}")
 print(f"Exponenciação: {exp}")
 
+print(f"Soma: {sum}, Subtração: {sub}, Divisão: {div}, Multiplicação: {mult}, Resto da Divisão: {mod} e Exponenciação: {exp}")
 
