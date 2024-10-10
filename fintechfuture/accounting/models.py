@@ -57,7 +57,7 @@ class DebitRegister(Base):
     launchDate = models.DateField() # Data de Lançamento
     costCenter = models.CharField(max_length=50, choices=CostCenter) # Centro de Custo - categoria
     supplier = models.CharField(max_length=50) # Fornecedor origem/destino
-    cashBook = models.ForeignKey(CashBook, related_name='CashBook', on_delete=models.CASCADE)
+    cashBook = models.ForeignKey(CashBook, related_name='debit_cashbook', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "DebitRegister"
@@ -73,7 +73,7 @@ class CreditRegister(Base):
     launchDate = models.DateField() # Data de Lançamento
     costCenter = models.CharField(max_length=50, choices=CostCenter) # Centro de Custo - categoria
     supplier = models.CharField(max_length=50) # Fornecedor origem/destino
-    cashBook = models.ForeignKey(CashBook, related_name='CashBook', on_delete=models.CASCADE)
+    cashBook = models.ForeignKey(CashBook, related_name='credit_cashbook', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = "CreditRegister"
