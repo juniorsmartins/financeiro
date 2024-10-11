@@ -10,6 +10,9 @@ elif operation == "*":
     result = num1 * num2
 elif operation == "/":
     result = num1 / num2
+else:
+    print("Operação inválida!")
+    result = 0
 
 print(f"O resultado é: {result}")
 
