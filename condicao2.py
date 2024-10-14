@@ -14,6 +14,6 @@ else:
     print("Operação inválida!")
     result = 0
 
-print(f"O resultado é: {result}")
+print(f"O resultado é: {result:.2f}")
 
 

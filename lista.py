@@ -47,4 +47,3 @@ filmListCopy.clear()
 print(f"Lista vazia: {filmListCopy}")
 
 
-
