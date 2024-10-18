@@ -1,5 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 from .models import CashBookCPF, DebitRegister, CreditRegister
 from .serializers import CashBookCPFSerializer, DebitRegisterSerializer, CreditRegisterSerializer
@@ -14,6 +15,12 @@ class CashBookCPFAPIView(APIView):
         serializer = CashBookCPFSerializer(cashBookCPF, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = CashBookCPFSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class DebitRegisterAPIView(APIView):
     """
@@ -24,6 +31,12 @@ class DebitRegisterAPIView(APIView):
         serializer = DebitRegisterSerializer(debitRegisters, many=True)
         return Response(serializer.data)
 
+    def post(self, request):
+        serializer = DebitRegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 class CreditRegisterAPIView(APIView):
     """
@@ -33,4 +46,11 @@ class CreditRegisterAPIView(APIView):
         creditRegisters = CreditRegister.objects.all()
         serializer = CreditRegisterSerializer(creditRegisters, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        serializer = CreditRegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
