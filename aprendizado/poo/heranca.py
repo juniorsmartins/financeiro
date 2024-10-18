@@ -33,7 +33,7 @@ mult_game = Game("Fortnite", 2017, True, 8.0)
 mult_game.technical_sheet()
 print(line*100)
 
-sing_game = SinglePlayerGame("The Last of Us 2", 2020, 9.5, "Emocionante história de sobrevivência")
+sing_game = SinglePlayerGame("The Last of Us 2", 2020, 9.5, "Emocionante história de sobrevivência entre mortos-vivos")
 sing_game.technical_sheet()
 print(line*100)
 
