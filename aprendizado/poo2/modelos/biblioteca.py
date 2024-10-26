@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.itens.item_biblioteca import ItemBiblioteca
 
 class Biblioteca:
     bibliotecas = []
@@ -7,6 +8,7 @@ class Biblioteca:
         self.nome = nome
         self._ativo = False
         self._avaliacao = []
+        self._itens = []
         Biblioteca.bibliotecas.append(self)
 
     def __str__(self):
@@ -37,4 +39,19 @@ class Biblioteca:
         media = soma / len(self._avaliacao)
         media_arredondada = round(media, 1)
         return media_arredondada
+
+    def add_item(self, item):
+        if isinstance(item, ItemBiblioteca):
+            self._itens.append(item)
+
+    def view_itens(self):
+        print(f"Library Itens: {self.nome}\n")
+        for i, item in enumerate(self._itens, start=1):
+            if hasattr(item, "isbn"):
+                msg_livro = f"Livro - {i}. Title: {item._title} | Author: {item._author} | Price: {item._price} and Discounted Price: {item.apply_discount()} | ISBN: {item.isbn}"
+                print(msg_livro)
+            else:
+                msg_revista = f"Revista - {i}. Title: {item._title} | Author: {item._author} | Price: {item._price} and Discounted Price: {item.apply_discount()} | Edition: {item.edition}"
+                print(msg_revista)
+
 

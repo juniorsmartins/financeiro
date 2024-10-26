@@ -6,3 +6,6 @@ class Revista(ItemBiblioteca):
         super().__init__(title, author, price)
         self.edition = edition
 
+    def apply_discount(self):
+        return self._price - (self._price * 0.05)
+
